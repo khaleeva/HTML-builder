@@ -43,6 +43,10 @@ async function copyStylesFiles(filePath, folderPath) {
 
 }
 
-copyStylesFiles(filePath, folderPath);
+if (require.main === module) {
+  copyStylesFiles(filePath, folderPath);
+}
 
 
+
+module.exports = {copyStylesFiles};
