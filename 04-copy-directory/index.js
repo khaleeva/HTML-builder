@@ -1,24 +1,6 @@
 const { mkdir, copyFile, readdir, stat} = require('fs/promises');
-
 const path = require('path');
 
-
-// async function copyFiles (folderPath, name) {
-//   try {
-//     const projectFolder = path.join(__dirname, name);
-//     await mkdir(projectFolder, { recursive: true });
-//     const files = await readdir(folderPath);
-//     for(const file of files){
-//       const srcPath = path.join(folderPath, file);
-//       const destPath = path.join(projectFolder, file);
-//       await copyFile(srcPath , destPath);
-//       console.log(`${file} успешно скопирован в ${projectFolder}`);
-//     }
-//
-//   } catch (err) {
-//     console.error(err.message);
-//   }
-// }
 
 async function copyFiles(srcDir, destDir) {
   await mkdir(destDir, { recursive: true });
