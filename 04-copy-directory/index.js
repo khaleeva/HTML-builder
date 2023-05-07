@@ -11,7 +11,7 @@ async function copyFiles () {
     const files = await readdir(folderPath);
     for(const file of files){
       await copyFile(path.join(folderPath, file), path.join(projectFolder, file));
-      console.log(`${file} успешно скопирован в ${folderPath}`);
+      console.log(`${file} успешно скопирован в ${projectFolder}`);
     }
 
   } catch (err) {
