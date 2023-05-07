@@ -5,15 +5,15 @@ const fs = require('fs');
 const { stat } = require('fs');
 
 const filePath = path.join(__dirname, 'project-dist', 'bundle.css');
+const folderPath = path.join(__dirname, 'styles');
 
-fs.writeFile(filePath, '',
-  (err) => {
-    if (err) throw err;
-  }
-);
+async function copyStylesFiles(filePath, folderPath) {
 
-async function copyStylesFiles() {
-  const folderPath = path.join(__dirname, 'styles');
+  fs.writeFile(filePath, '',
+    (err) => {
+      if (err) throw err;
+    }
+  );
 
   try {
     const files = await readdir(folderPath);
@@ -43,6 +43,6 @@ async function copyStylesFiles() {
 
 }
 
-copyStylesFiles();
+copyStylesFiles(filePath, folderPath);
 
 
