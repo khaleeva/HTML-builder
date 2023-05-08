@@ -9,7 +9,6 @@ readStream.on('data', (chunk) => {
   console.log(chunk.toString());
 });
 
-readStream.on('end', () => console.log('End'));
 
 readStream.on('error', (err) => {
   console.error(err);

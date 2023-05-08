@@ -25,14 +25,12 @@ async function copyStylesFiles(filePath, folderPath) {
             await fs.promises.appendFile(filePath, chunk.toString());
           });
           readStream.on('end', () => {
-            console.log('end');
+            console.log(`${file} успешно скопирован в ${filePath}`);
           });
 
           readStream.on('error', (err) => {
             console.log(err);
           });
-        } else {
-          console.log(`${file} не является файлом`);
         }
       });
     }
