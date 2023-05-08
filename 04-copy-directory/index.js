@@ -1,4 +1,4 @@
-const { mkdir, copyFile, readdir, stat, rmdir } = require('fs/promises');
+const { mkdir, copyFile, readdir, stat, rm } = require('fs/promises');
 const path = require('path');
 
 
@@ -22,12 +22,16 @@ async function copyFiles(srcDir, destDir) {
 const srcDir = path.join(__dirname, 'files');
 const destDir = path.join(__dirname, 'files-copy');
 
-rmdir(destDir, { recursive: true })
+rm(destDir, { recursive: true, force: true })
   .then(() => {
     return copyFiles(srcDir, destDir);
   })
   .catch((err) => {
-    console.error(err);
+    if (err.code === 'ENOENT') {
+      return copyFiles(srcDir, destDir);
+    } else {
+      console.error(err);
+    }
   });
 
 
