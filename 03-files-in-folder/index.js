@@ -16,8 +16,6 @@ async function readFilesInFolder() {
           console.log(`Наименование файла: ${file}`);
           console.log(`Расширение файла: ${path.extname(file)}`);
           console.log(stats);
-        } else {
-          console.log(`${file} не является файлом`);
         }
       });
     }
