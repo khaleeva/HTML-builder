@@ -12,10 +12,7 @@ async function readFilesInFolder() {
       stat(path.join(folderPath, file), (err, stats) => {
 
         if(stats.isFile()){
-          console.log(`${file} является файлом:`);
-          console.log(`Наименование файла: ${file}`);
-          console.log(`Расширение файла: ${path.extname(file)}`);
-          console.log(stats);
+          console.log(`${file} - ${path.extname(file)} - ${(stats.size/1024).toFixed(3)}kb`);
         }
       });
     }
