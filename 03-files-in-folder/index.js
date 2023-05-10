@@ -12,7 +12,7 @@ async function readFilesInFolder() {
       stat(path.join(folderPath, file), (err, stats) => {
 
         if(stats.isFile()){
-          console.log(`${file} - ${path.extname(file)} - ${(stats.size/1024).toFixed(3)}kb`);
+          console.log(`${file} - ${path.extname(file).replace('.', '')} - ${(stats.size/1024).toFixed(3)}kb`);
         }
       });
     }
